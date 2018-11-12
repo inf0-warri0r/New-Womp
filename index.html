@@ -1,7 +1,20 @@
 <html>
 <body>
-<audio controls>
+
+<!DOCTYPE html>
+<html>
+<body>
+<audio id="womp_sound">
   <source src="womp.ogg" type="audio/ogg">
 </audio>
+
+<button onclick="playAudio()" type="button">Womp</button>
+<script>
+var x = document.getElementById("womp_sound"); 
+
+function playAudio() { 
+    x.play(); 
+} 
+</script>
 <body>
 </html>
