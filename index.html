@@ -1,20 +1,34 @@
 <html lang="en-US">
-<head>
-	<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" />
-	<title>Womp!!</title>
-</head>
-<body style="text-align:center; padding:50px">
-	<audio id="womp_sound">
-	  <source src="womp_new.ogg" type="audio/ogg">
-	</audio>
+	<head>
+		<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+		<title>Womp!!</title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<body style="text-align:center; padding:50px">
+		<div id="cat" style="width:100%;display:none;text-align:center">
+			<img src="shashi.jpg" style="width:20%"/> 
+		</div>
+		<br/>
+		<br/>
+		<audio id="womp_sound">
+		  <source src="womp_new.ogg" type="audio/ogg">
+		</audio>
 
-	<button onclick="playAudio()" type="button" style="width:150px;height:80px;background-color:red;color:white;font-size:20px"><strong>Womp!!</strong></button>
-	<script>
-	var x = document.getElementById("womp_sound"); 
-
-	function playAudio() { 
-		x.play(); 
-	} 
-	</script>
-<body>
+		<button id="womp" type="button" style="width:150px;height:80px;background-color:red;color:white;font-size:20px"><strong>Womp!!</strong></button>
+		<script>
+			$(document).ready(function(){
+				$("#womp").click(function(){
+					var x = document.getElementById("womp_sound"); 
+					x.play();
+					$("#cat").slideDown();
+					$("#womp").attr("disabled", "disabled");
+					setTimeout(close, 5000);
+				});
+			});
+			function close(){
+				$("#cat").slideUp();
+				$("#womp").removeAttr("disabled");;
+			}
+		</script>
+	<body>
 </html>
